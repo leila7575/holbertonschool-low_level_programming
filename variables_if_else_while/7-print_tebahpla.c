@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 /**
  * main - Prints alphabet
  *
@@ -6,9 +8,9 @@
  */
 int main(void)
 {
-	char c = 'a';
+	char c = 'z';
 
-	for (c = 'z' ; c <= 'a' ; c--)
+	for (c = 'z' ; c >= 'a' ; c--)
 	{
 		putchar(c);
 	}
@@ -16,3 +18,4 @@ int main(void)
 	putchar('\n');
 	return (0);
 }
+
