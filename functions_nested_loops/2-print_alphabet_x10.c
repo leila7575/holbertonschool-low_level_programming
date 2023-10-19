@@ -3,16 +3,14 @@
 /**
  * print_alphabet_x10 - function that prints the alphabet 10 times
  */
-
 void print_alphabet_x10(void)
 {
-	int repeat;
-	char alphabet;
+	int c, i;
 
-	while (repeat++ < 10)
+	for (i = 0; i = 10; i++)
 	{
-		for (alphabet = 'a'; alphabet <= 'z'; alphabet++)
-			_putchar(alphabet);
+		for (c = 'a'; c <= 'z'; c++)
+			_putchar(c);
 		_putchar('\n');
 	}
 }
