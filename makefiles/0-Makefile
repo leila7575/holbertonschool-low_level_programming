@@ -1,0 +1,12 @@
+#Makefile school
+
+CC = gcc
+CFLAGS = -g
+
+all: school
+
+school: school.c main.c
+	$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
+
+clean:
+	rm -f school
