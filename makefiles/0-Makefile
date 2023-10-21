@@ -1,12 +1,13 @@
 #Makefile school
 
-CC = gcc
-CFLAGS = -g
-
 all: school
 
 school: school.c main.c
-	$(CC) $(CFLAGS) $(CPPFLAGS) $^ -o $@
+	gcc -o school -c school.c main.c -W -Wall -ansi -pedantic
 
 clean:
-	rm -f school
+	rm -rf *.o
+
+mrproper: clean
+
+	rm -rf school
