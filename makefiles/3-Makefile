@@ -1,4 +1,4 @@
-C=gcc
+CC=gcc
 CFLAGS= -W -Wall -ansi -pedantic
 LDLFLAGS=
 SRC= school.c main.c
