@@ -2,20 +2,21 @@ CC=gcc
 CFLAGS= -W -Wall -ansi -pedantic
 LDLFLAGS=
 SRC= school.c main.c
-OBJ= $ (SRC:.c=.o)
-NAME: school
+OBJ= $(SRC:.c=.o)
+NAME=school
 
-all: school
+all: $(NAME)
 
-school: $ (OBJ)
+$(NAME): $(OBJ)
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 %.o: %.c
 	$(CC) -o $@ -c $< $(CFLAGS)
 
+.PHONY: clean mrproper
+
 clean:
-	rm -rf *.o
+	rm -rf $(OBJ)
 
 mrproper: clean
-
-        rm -rf school
+	rm -rf $(NAME)
