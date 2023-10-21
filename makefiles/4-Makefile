@@ -1,0 +1,25 @@
+CC=gcc
+CFLAGS= -Wall -Werror -Wextra -pedantic
+LDFLAGS=
+SRC= school.c main.c
+OBJ= $(SRC:.c=.o)
+	NAME=school
+	RM=rm -rf
+
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	        $(CC) -o $@ $^ $(LDFLAGS)
+
+%.o: %.c
+	        $(CC) -o $@ -c $< $(CFLAGS)
+
+clean:
+	        $(RM) *~ $(NAME)
+
+oclean:
+	        $(RM) -f $(OBJ)
+
+fclean: clean oclean
+
+re: fclean all
