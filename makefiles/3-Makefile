@@ -1,0 +1,32 @@
+C=gcc
+CFLAGS= -W -Wall -ansi -pedantic
+LDLFLAGS=
+SRC= school.c main.c
+OBJ= $(SRC:.c=.o)
+NAME=school
+RM=rm -rf
+TMP= $(SRCS/.c=.c~)
+
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(CC) -o $@ $^ $(LDFLAGS)
+
+%.o: %.c
+	$(CC) -o $@ -c $< $(CFLAGS)
+
+.PHONY: clean mrproper
+
+clean:
+	$(RM) -f $(TMP)
+	$(RM) -f $(NAME)
+
+oclean:
+	$(RM) -f $(OBJ)
+
+fclean: clean oclean
+	$(RM) -f $(TMP)
+	$(RM) -f $(NAME)
+	$(RM) -f $(OBJ)
+
+re: flean all
