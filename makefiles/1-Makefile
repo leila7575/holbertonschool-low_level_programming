@@ -1,11 +1,22 @@
-CC = gcc
-CFLAGS = -g
-SRC = school.c main.c
+CC=gcc
+CFLAGS= -W -Wall -ansi -pedantic
+LDLFLAGS=
+SRC= school.c main.c
 
 all: school
 
-school: school.c main.c
-	        $(CC) $(CFLAGS) $(CPPFLAGS) $^ -o $@
+school: school.o main.o
+		$(CC) -o $@ $^ $(LDFLAGS)
+
+school.o: school.c
+		$(CC) -o $@ -c $< $(CFLAGS)
+
+main.o: main.c
+		$(CC) -o $@ -c $< $(CFLAGS)
 
 clean:
-	        rm -f school
+		rm -rf *.o
+
+mrproper: clean
+
+	rm -rf school
