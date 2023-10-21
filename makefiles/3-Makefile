@@ -5,7 +5,7 @@ SRC= school.c main.c
 OBJ= $(SRC:.c=.o)
 NAME=school
 RM=rm -rf
-TMP= $(SRC/.c=.c~)
+TMP= $(SRC:.c=.c~)
 
 all: $(NAME)
 
