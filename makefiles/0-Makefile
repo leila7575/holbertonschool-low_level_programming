@@ -2,8 +2,14 @@
 
 all: school
 
-school: school.c main.c
-	gcc -o school -c school.c main.c -W -Wall -ansi -pedantic
+school: school.o main.o
+	$(CC) -o $@ $^ $(LDFLAGS)
+
+school.o: school.c
+	$(CC) -o $@ -c $< $(CFLAGS)
+
+main.o: main.c
+	$(CC) -o $@ -c $< $(CFLAGS)
 
 clean:
 	rm -rf *.o
