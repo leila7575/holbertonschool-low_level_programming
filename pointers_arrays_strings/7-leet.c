@@ -11,7 +11,7 @@ char *leet(char *str)
 	unsigned int i;
 	int j = 0;
 
-	while (str[++j])
+	while (str[j])
 	{
 		for (i = 0; i <= 4 ; i++)
 		{
@@ -20,8 +20,9 @@ char *leet(char *str)
 				str[j] = '0' + res[i];
 			}
 		}
+
+		j++;
 	}
 
 	return (str);
-
 }
