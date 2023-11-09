@@ -5,7 +5,7 @@
  * alloc_grid - returns a pointer to a 2 dimensional array of integers
  * @width: width of the grid
  * @height: height of the grid
- * Return:
+ * Return: pointer to the array
  */
 int **alloc_grid(int width, int height)
 {
@@ -13,29 +13,28 @@ int **alloc_grid(int width, int height)
 	int h = 0;
 	int **table;
 
-	if (w <= 0 || h <= 0)
-		return (NULL);
+	table = malloc(sizeof(*table) * height);
 
-	table = malloc(sizeof(int *) * height);
-
-	if (table == NULL)
-		return (NULL);
-
-	for (h = 0; h < height; h++)
+	if (width <= 0 || height <= 0 || table == 0)
 	{
-		table[h] = (int *)malloc(sizeof(int *) * width);
-		if (table[h] == NULL)
+		return (NULL);
+	}
+	else
+	{
+		for (h = 0; h < height; h++)
 		{
-			for (w = 0; w < h; w++)
+			table[h] = malloc(sizeof(**table) * width);
+			if (table[h] == 0)
 			{
-				free(table[w]);
+				while (h--)
+					free(table[h]);
+				free(table);
+				return (NULL);
 			}
-			free(table);
-			return (NULL);
-		}
-		for (w = 0; w < width; w++)
-		{
-			table[h][w] = 0;
+			for (w = 0; w < width; w++)
+			{
+				table[h][w] = 0;
+			}
 		}
 	}
 	return (table);
