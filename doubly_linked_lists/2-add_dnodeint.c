@@ -3,8 +3,8 @@
 
 /**
  * add_dnodeint - Add a new node at the beginning of the list
- * @head: Pointer to the pointer at the start 
- * @n: value of the nodes 
+ * @head: Pointer to the pointer at the start
+ * @n: value of the nodes
  * Return: The address of the new element or NULL if it fails
  */
 dlistint_t *add_dnodeint(dlistint_t **head, const int n)
