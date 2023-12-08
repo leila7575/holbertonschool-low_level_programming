@@ -21,11 +21,11 @@ void hash_table_print(const hash_table_t *ht)
 		temp = ht->array[i];
 		while (temp != NULL)
 		{
-		if (flag == 1)
-			printf(", ");
-		printf("'%s' : '%s'", temp->key, temp->value);
-		flag = 1;
-		temp = temp->next;
+			if (flag == 1)
+				printf(", ");
+			printf("'%s' : '%s'", temp->key, temp->value);
+			flag = 1;
+			temp = temp->next;
 		}
 		flag = 0;
 	}
