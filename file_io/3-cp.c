@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 	fd_from = open(file_from, O_RDONLY);
 	if (fd_from == -1)
 		dprintf(STDERR_FILENO, READ_ERROR, file_from), exit(98);
-	fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC);
+	fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, PERMISSIONS);
 	if (fd_to == -1)
 		dprintf(STDERR_FILENO, WRITE_ERROR, file_to), exit(99);
 	while ((rbytes = read(fd_from, buffer,  BUFFER_SIZE)) > 0)
